@@ -3,7 +3,7 @@ import './App.css';
 import Editor from "@monaco-editor/react";
 import Navbar from './Components/Navbar';
 import Axios from 'axios';
-import spinner from './spinner.svg';
+import giphy from './giphy.gif';
 
 
 function App() {
@@ -25,7 +25,7 @@ const [userInput, setUserInput] = useState("");
 
 // State variable to set users output
 const [userOutput, setUserOutput] = useState("");
-
+const [outputError, setoutputError] = useState("");
 // Loading state variable to show spinner
 // while fetching data
 const [loading, setLoading] = useState(false);
@@ -47,10 +47,13 @@ function compile() {
 	language: userLang,
 	input: userInput }).then((res) => {
 	setUserOutput(res.data.output);
+	setoutputError(res.data.error);
 	}).then(() => {
 	setLoading(false);
 	})
 }
+
+	
 
 // Function to clear the output screen
 function clearOutput() {
@@ -83,6 +86,7 @@ return (
 		<div className="right-container">
 		<h4>Input:</h4>
 		<div className="input-box">
+			<p>#If you want to give any input Then first give input then RUN the Code</p>
 			<textarea id="code-inp" onChange=
 			{(e) => setUserInput(e.target.value)}>
 			</textarea>
@@ -90,11 +94,12 @@ return (
 		<h4>Output:</h4>
 		{loading ? (
 			<div className="spinner-box">
-			<img src={spinner} alt="Loading..." />
+			<img src={giphy} alt="Loading..." />
 			</div>
 		) : (
 			<div className="output-box">
 			<pre>{userOutput}</pre>
+			<pre>{outputError}</pre>
 			<button onClick={() => { clearOutput() }}
 				className="clear-btn">
 				Clear

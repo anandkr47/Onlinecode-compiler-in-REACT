@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import flame from './flame.gif';
 import './Navbar.css';
 
 const Navbar = ({userLang, setUserLang, userTheme,
@@ -16,7 +17,8 @@ const Navbar = ({userLang, setUserLang, userTheme,
 	]
 	return (
 		<div className="navbar">
-			<h1>Geeks Code Compiler</h1>
+			<img src={flame} alt="Loading..." />
+			<h1>Online-code Compiler</h1>
 			<Select options={languages} value={userLang}
 					onChange={(e) => setUserLang(e.value)}
 					placeholder={userLang} />

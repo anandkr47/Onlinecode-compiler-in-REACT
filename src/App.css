@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   background-color: #242424;
-  border-left: 3px solid #1f65e6;
+  border-left: 3px solid #ec17c8;
   padding: 5px;
   }
   .input-box{
@@ -27,6 +27,9 @@
   }
   .input-box textarea{
   font-size: 16px;
+  }
+  .input-box p{
+    color: #18cf55;
   }
   .spinner-box{
   flex: 50%;
@@ -55,18 +58,22 @@
   font-size: 22px;
   font-weight: bold;
   color: white;
-  background-color: #1f65e6;
+  background-color: #e61fd5;
   border: none;
   border-radius: 4px;
   transition: 0.3s;
   cursor: pointer;
+  }
+  .clear-btn:hover{
+    background-color: #ec1b1b; /* Green */
+  color: white;
   }
   .output-box pre{
   font-size: 15px;
   white-space: pre-wrap;
   }
   h4{
-  color: #afec3f;
+  color: #ee7e23;
   }
   #code-inp{
   box-sizing: border-box;
@@ -88,11 +95,15 @@
   height: 40px;
   font-size: 22px;
   font-weight: bold;
-  background-color: #afec3f;
+  background-color: #b80eec;
   border: none;
   border-radius: 4px;
   transition: 0.3s;
   cursor: pointer;
+  }
+  .run-btn:hover{
+    background-color: #ec1b1b; /* Green */
+  color: white;
   }
   .run-btn:active{
   background-color: #6e9427;
