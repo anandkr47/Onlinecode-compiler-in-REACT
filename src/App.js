@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import './App.css';
 import Editor from "@monaco-editor/react";
@@ -60,6 +61,22 @@ function clearOutput() {
 	setUserOutput("");
 }
 
+// Function to download code as file
+function downloadCode() {
+	const fileName = document.getElementById("filename").value;
+	if (!fileName) {
+		alert("Please enter a filename");
+		return;
+	}
+
+	const blob = new Blob([userCode], { type: "text/plain;charset=utf-8" });
+	const link = document.createElement("a");
+	link.href = window.URL.createObjectURL(blob);
+	link.download = fileName;
+	link.click();
+}
+
+
 return (
 	<div className="App">
 	<Navbar
@@ -79,11 +96,16 @@ return (
 			defaultValue="# Enter your code here"
 			onChange={(value) => { setUserCode(value) }}
 		/>
+		
 		<button className="run-btn" onClick={() => compile()}>
 			Run
 		</button>
 		</div>
 		<div className="right-container">
+		<div class="file-container">
+		<input id="filename"placeholder="Specify a filename..." />
+		<button id="Download" onClick={() => downloadCode()}>Download</button>
+		</div>
 		<h4>Input:</h4>
 		<div className="input-box">
 			<p>#If you want to give any input Then first give input then RUN the Code</p>

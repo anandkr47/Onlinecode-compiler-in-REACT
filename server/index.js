@@ -25,6 +25,9 @@ app.post("/compile", (req,res) => {
   if (language === "C") {
 		language="c"
 	}
+	 if (language === "javascript") {
+		language="js"
+	}
 
 	let data = ({
 		"code": code,
