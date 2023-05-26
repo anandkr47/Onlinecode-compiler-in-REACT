@@ -43,7 +43,7 @@ function compile() {
 	}
 
 	// Post request to compile endpoint
-	Axios.post(`https://compiler-api.onrender.com/compile`, {
+	Axios.post(`http://localhost:8000/compile`, {
 	code: userCode,
 	language: userLang,
 	input: userInput }).then((res) => {
@@ -53,7 +53,6 @@ function compile() {
 	setLoading(false);
 	})
 }
-
 	
 
 // Function to clear the output screen
