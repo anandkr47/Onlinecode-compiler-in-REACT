@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const app = express();
+require("dotenv").config();
 const PORT = 8000;
 
 app.use(cors());
@@ -34,10 +35,10 @@ app.post("/compile", (req,res) => {
 	
 const config = {
     method: 'POST',
-  url: 'https://codex7.p.rapidapi.com/',
+  url: process.env.API_URL,
   headers: {
     'content-type': 'application/x-www-form-urlencoded',
-    'X-RapidAPI-Key': '0e4fe4b833msha44a0e2f489846dp124b43jsn883d5de5f61c',
+    'X-RapidAPI-Key': process.env.API_KEY,
     'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
   },
   data:data
