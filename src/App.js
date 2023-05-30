@@ -43,7 +43,7 @@ function compile() {
 	}
 
 	// Post request to compile endpoint
-	Axios.post(`https://compiler-api.onrender.com/compile`, {
+	Axios.post(`/https://compiler-api.onrender.com/compile`, {
 	code: userCode,
 	language: userLang,
 	input: userInput }).then((res) => {
