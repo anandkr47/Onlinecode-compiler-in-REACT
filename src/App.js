@@ -37,22 +37,26 @@ const options = {
 
 // Function to call the compile endpoint
 function compile() {
-	setLoading(true);
-	if (userCode === ``) {
-	return
-	}
+  setLoading(true);
+  if (userCode === ``) {
+    return;
+  }
 
-	// Post request to compile endpoint
-	Axios.post(`/https://compiler-api.onrender.com/compile`, {
-	code: userCode,
-	language: userLang,
-	input: userInput }).then((res) => {
-	setUserOutput(res.data.output);
-	setoutputError(res.data.error);
-	}).then(() => {
-	setLoading(false);
-	})
+  // Post request to compile endpoint
+  Axios.post(`https://compiler-api.onrender.com/compile`, {
+    code: userCode,
+    language: userLang,
+    input: userInput
+  })
+    .then((res) => {
+      setUserOutput(res.data.output);
+      setOutputError(res.data.error);
+    })
+    .then(() => {
+      setLoading(false);
+    });
 }
+
 	
 
 // Function to clear the output screen
