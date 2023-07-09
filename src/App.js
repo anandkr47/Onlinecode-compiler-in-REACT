@@ -42,7 +42,7 @@ function compile() {
 	}
 //http://localhost:8000/
 	// Post request to compile endpoint
-	Axios.post(`https://compiler-api.onrender.com/compile`, {
+	Axios.post(`https://glorious-lion-top-coat.cyclic.app/compile`, {
 	code: userCode,
 	language: userLang,
 	input: userInput }).then((res) => {
