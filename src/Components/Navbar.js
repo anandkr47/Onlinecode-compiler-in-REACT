@@ -10,7 +10,7 @@ const Navbar = ({userLang, setUserLang, userTheme,
 		{ value: "cpp", label: "C++" },
 		{ value: "python", label: "Python" },
 		{ value: "java", label: "Java" },
-		{ value: "javascript", label: "Javascript" },
+		
 	];
 	const themes = [
 		{ value: "vs-dark", label: "Dark" },
